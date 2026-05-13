@@ -1,0 +1,30 @@
+{
+  "name": "metafile",
+  "displayName": "metafile",
+  "description": "Syntax highlighting for meta syntax",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.118.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "metafile",
+      "aliases": ["MetaFile", "metafile"],
+      "extensions": [".meta"],
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./assets/MetaFile.png",
+        "dark": "./assets/MetaFile.png"
+      }
+    }
+  ],
+  "grammars": [{
+    "language": "metafile",
+    "scopeName": "source.meta",
+    "path": "./syntaxes/metafile.tmLanguage.json"
+    }]
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  
+  "name": "MetaLang",
+  "scopeName": "source.meta",
+  
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings-double" },
+    { "include": "#strings-single" },
+    { "include": "#tags" },
+    { "include": "#keys" },
+    { "include": "#operators" },
+    { "include": "#assignment-values" },
+    { "include": "#standalone-values" },
+    { "include": "#blocks" }
+  ],
+  
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.meta",
+          "match": "#.*$"
+        }
+      ]
+    },
+    
+    "strings-double": {
+      "name": "string.quoted.double.meta",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.meta",
+          "match": "\\\\."
+        }
+      ]
+    },
+    
+    "strings-single": {
+      "name": "string.quoted.single.meta",
+      "begin": "'",
+      "end": "'",
+      "patterns": [
+        {
+          "name": "constant.character.escape.meta",
+          "match": "\\\\."
+        }
+      ]
+    },
+    
+    "tags": {
+      "patterns": [
+        {
+          "name": "entity.name.type",
+          "match": "@[^\\s\\{\\}\\\"\\'#=]+"
+        }
+      ]
+    },
+    
+    "keys": {
+      "patterns": [
+        {
+          "name": "variable.other.key.meta",
+          "match": "[^\\s\\{\\}\\\"\\'#=]+(?=\\s*=)"
+        }
+      ]
+    },
+    
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.assignment.meta",
+          "match": "="
+        }
+      ]
+    },
+    
+    "assignment-values": {
+      "patterns": [
+        {
+          "name": "string.unquoted.meta",
+          "match": "(?<==\\s*)[^\\s\\{\\}\\\"\\'#=]+"
+        }
+      ]
+    },
+    
+    "standalone-values": {
+      "patterns": [
+        {
+          "name": "constant.numeric",
+          "match": "(?<!@)(?<![=])\\b[^\\s\\{\\}\\\"\\'#=]+\\b"
+        }
+      ]
+    },
+    
+    "blocks": {
+      "patterns": [
+        {
+          "name": "punctuation.section.block.begin.meta",
+          "match": "\\{"
+        },
+        {
+          "name": "punctuation.section.block.end.meta",
+          "match": "\\}"
+        }
+      ]
+    }
+  }  
+}
